@@ -1,0 +1,62 @@
+[basic]
+name = "张三"
+role = "前端工程师"
+phone = "138-1234-5678"
+email = "zhangsan@example.com"
+website = "https://portfolio.example.com"
+city = "上海"
+extras = ["GitHub: github.com/zhangsan", "博客: blog.example.com"]
+
+[[skills]]
+category = "语言"
+items = ["JavaScript", "TypeScript", "HTML", "CSS"]
+
+[[skills]]
+category = "框架"
+items = ["React", "Vue", "Node.js"]
+
+[[skills]]
+category = "工程化"
+items = ["Vite", "Webpack", "Vitest", "Playwright"]
+
+[[projects]]
+name = "简历生成器"
+description = "使用原生 HTML、CSS、JavaScript 构建本地简历渲染工具，支持 TOML 配置加载与 A4 页面预览。"
+contributions = [
+  "设计可维护的 TOML 配置模板，降低内容编辑成本。",
+  "实现状态提示与打印导出逻辑，保证页面预览和 PDF 输出尽量一致。",
+]
+
+[[projects]]
+name = "数据看板平台"
+description = "面向业务团队搭建可配置的数据可视化平台，支持图表管理、筛选器编排与打印导出。"
+contributions = [
+  "负责前端模块化拆分，沉淀公共图表容器和筛选器模型。",
+  "优化首屏性能和打印样式，降低大屏与文档场景切换成本。",
+]
+
+[[work_experiences]]
+company = "示例科技"
+position = "高级前端工程师"
+period = "2022.03 - 至今"
+details = [
+  "负责内部运营平台与内容平台的前端架构维护，推动低耦合页面模块设计。",
+  "主导前端工程规范梳理，包括构建流程、代码检查、样式输出和文档沉淀。",
+]
+
+[[work_experiences]]
+company = "另一家公司"
+position = "前端工程师"
+period = "2020.07 - 2022.02"
+details = [
+  "参与多个中后台系统交付，负责复杂表单、列表与权限相关页面开发。",
+  "协同产品与设计推进页面体验优化，缩短需求迭代周期。",
+]
+
+[education]
+school = "某某大学"
+major = "软件工程"
+period = "2016 - 2020"
+
+[summary]
+text = "具备完整前端项目交付经验，关注结构化信息表达、页面稳定性与工程维护成本，能够从需求理解、实现到文档整理独立推进工作。"

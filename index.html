@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Generator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="toolbar" aria-label="控制区">
+        <div class="toolbar__left">
+          <p class="toolbar__label">渲染状态</p>
+          <p id="status-text" class="status-pill status-pill--idle">未加载配置文件</p>
+        </div>
+        <div class="toolbar__actions">
+          <label class="button button--secondary" for="file-input">加载配置文件</label>
+          <input id="file-input" type="file" accept=".toml,text/plain" hidden />
+          <button id="print-button" class="button button--primary" type="button">
+            生成 PDF
+          </button>
+        </div>
+      </section>
+
+      <section class="hint-panel" aria-label="状态说明">
+        <p id="status-detail" class="hint-panel__text">
+          先加载一个 TOML 配置文件，再检查是否接近一页。
+        </p>
+      </section>
+
+      <section class="page-stage">
+        <article id="resume-page" class="resume-page" aria-label="A4 简历预览">
+          <header id="basic-section" class="resume-section resume-header"></header>
+          <section id="skills-section" class="resume-section"></section>
+          <section id="projects-section" class="resume-section"></section>
+          <section id="work-section" class="resume-section"></section>
+          <section id="education-section" class="resume-section"></section>
+          <section id="summary-section" class="resume-section"></section>
+        </article>
+      </section>
+    </main>
+
+    <template id="section-title-template">
+      <div class="section-title">
+        <h2 class="section-title__text"></h2>
+      </div>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,366 @@
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-padding: 14mm;
+  --line-color: #c72222;
+  --ink: #1c1b1a;
+  --muted: #5f5a55;
+  --paper: #fffdf8;
+  --panel: #f3efe6;
+  --panel-border: #d5cdc1;
+  --accent: #7f1414;
+  --ok-bg: #ebf5ee;
+  --ok-text: #226541;
+  --warn-bg: #fff4dd;
+  --warn-text: #8b5a12;
+  --danger-bg: #fdeceb;
+  --danger-text: #a12424;
+  --idle-bg: #ebe7df;
+  --idle-text: #60564b;
+  --shadow: 0 28px 80px rgba(57, 39, 17, 0.12);
+  --font-family: "IBM Plex Mono", "JetBrains Mono", "Fira Code", "Cascadia Mono",
+    "Liberation Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(199, 34, 34, 0.08), transparent 35%),
+    linear-gradient(180deg, #f6f0e7 0%, #ebe3d8 100%);
+  color: var(--ink);
+  font-family: var(--font-family);
+}
+
+button,
+input,
+label {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1200px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.toolbar,
+.hint-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 252, 245, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.toolbar {
+  border-radius: 20px 20px 10px 10px;
+}
+
+.hint-panel {
+  margin-top: 10px;
+  border-radius: 10px 10px 20px 20px;
+}
+
+.toolbar__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.toolbar__label {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.status-pill {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+
+.status-pill--idle {
+  background: var(--idle-bg);
+  color: var(--idle-text);
+}
+
+.status-pill--ok {
+  background: var(--ok-bg);
+  color: var(--ok-text);
+  border-color: rgba(34, 101, 65, 0.18);
+}
+
+.status-pill--warn {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border-color: rgba(139, 90, 18, 0.18);
+}
+
+.status-pill--danger {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: rgba(161, 36, 36, 0.18);
+}
+
+.toolbar__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button--primary {
+  background: #231a14;
+  color: #fffaf2;
+  box-shadow: 0 10px 22px rgba(35, 26, 20, 0.18);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--accent);
+  border-color: rgba(127, 20, 20, 0.24);
+}
+
+.hint-panel__text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.page-stage {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.resume-page {
+  width: var(--page-width);
+  height: var(--page-height);
+  padding: var(--page-padding);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-section {
+  border-top: 1.5px solid var(--line-color);
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+.resume-section:empty {
+  display: none;
+}
+
+.resume-header {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: 4px;
+}
+
+.resume-name-row,
+.resume-contact-row,
+.resume-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.resume-name-row {
+  align-items: baseline;
+}
+
+.resume-name {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.resume-role {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.resume-contact-row,
+.resume-meta-row {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.section-title {
+  margin-bottom: 10px;
+}
+
+.section-title__text {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.skills-grid--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+}
+
+.skill-group {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 8px;
+  align-items: start;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.skill-group__name {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.entry-list {
+  display: grid;
+  gap: 12px;
+}
+
+.entry-card {
+  display: grid;
+  gap: 6px;
+}
+
+.entry-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.entry-card__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.entry-card__meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.entry-card__body,
+.bullet-list,
+.summary-text,
+.education-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.bullet-list {
+  padding-left: 18px;
+}
+
+.bullet-list li + li {
+  margin-top: 2px;
+}
+
+.resume-footer-spacer {
+  min-height: 8px;
+}
+
+@media (max-width: 960px) {
+  .app-shell {
+    width: min(100vw - 20px, 100%);
+    padding-top: 12px;
+  }
+
+  .toolbar,
+  .hint-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-stage {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 8px;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .app-shell {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toolbar,
+  .hint-panel {
+    display: none;
+  }
+
+  .page-stage {
+    margin: 0;
+    display: block;
+  }
+
+  .resume-page {
+    width: 210mm;
+    height: 297mm;
+    box-shadow: none;
+    margin: 0;
+  }
+}
